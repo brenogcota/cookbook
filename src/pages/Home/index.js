@@ -3,32 +3,65 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../../components/header';
-import image from '../../assets/photo-1523049673857-eb18f1d7b578.jpeg'
-import image2 from '../../assets/photo-1571575173700-afb9492e6a50.jpeg'
-import image3 from '../../assets/photo-1578508053827-fe06d4dc2457.jpeg'
+import Footer from '../../components/footer';
 
-import { Container, SearchBox, Recipes, CardRecipe } from './styles';
+import bgTop from '../../assets/bgtop.png';
+import bgBottom from '../../assets/bgbottom.png';
+
+import { Container, SearchBox, Recipes,RecipesGrid, CardRecipe, ContentAction } from './styles';
 
 import data from '../../services/data';
 
 function Home() {
+
+
     return (
         <>
             <Header />
             <Container>
+                <img src={bgTop} alt=""/>
+                
+
                 <SearchBox>
                     <input type="text" placeholder="Buscar"/>
                 </SearchBox>
+
+                
+                <h2>Receitas</h2>   
+
+                <RecipesGrid>
+
+                    { data.map( d => {
+                    return (
+                        <CardRecipe key={d.id}>
+                            <Link to={`/receita/${encodeURIComponent(d.id)}`}>
+                                <p>{d.titulo}</p>
+                                <img src={`http://localhost:3000/public/assets/${d.imagem}`} alt=""></img>
+                                <ContentAction>
+                                    <span>{d.tempo}</span>
+                                    <span>{d.custo}</span>
+                                </ContentAction>
+                            </Link>
+                        </CardRecipe>
+                        );
+                    })}   
+
+                </RecipesGrid>
+
                 <h2>Receitas</h2>
 
                 <Recipes>
 
                     { data.map( d => {
                     return (
-                    <CardRecipe>
+                    <CardRecipe key={d.id}>
                         <Link to={`/receita/${encodeURIComponent(d.id)}`}>
                             <p>{d.titulo}</p>
-                            <img src={image} alt=""></img>
+                            <img src={`http://localhost:3000/public/assets/${d.imagem}`} alt=""></img>
+                            <ContentAction>
+                                <span>{d.tempo}</span>
+                                <span>{d.custo}</span>
+                            </ContentAction>
                         </Link>
                     </CardRecipe>
                     );
@@ -39,17 +72,30 @@ function Home() {
 
                 <h2>Novidades</h2>
 
-                <Recipes>
+                <Recipes>  
 
-                    <CardRecipe>
-                        <Link to={`/receita/${encodeURIComponent(data.id)}`}>
-                            <p>{data.titulo}</p>
-                            <img src={image2} alt=""></img>
-                        </Link>
-                    </CardRecipe>           
+                    { data.map( d => {
+                    return (
+                        <CardRecipe key={d.id}>
+                            <Link to={`/receita/${encodeURIComponent(d.id)}`}>
+                                <p>{d.titulo}</p>
+                                <img src={`http://localhost:3000/public/assets/${d.imagem}`} alt=""></img>
+                                <ContentAction>
+                                    <span>{d.tempo}</span>
+                                    <span>{d.custo}</span>
+                                </ContentAction>
+                            </Link>
+                        </CardRecipe>
+                        );
+                    })}                          
 
                 </Recipes>
-            </Container>  
+
+            <img src={bgBottom} alt=""/>
+            </Container>
+
+            <Footer />
+        
         </> 
     );
 }

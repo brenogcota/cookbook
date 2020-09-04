@@ -1,30 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import ArrowBack from '@material-ui/icons/ArrowBackIosOutlined';
 import ArrowForward from '@material-ui/icons/ArrowForwardIosOutlined';
 
 
 import data from '../../services/data';
+import finish from '../../assets/cookerblack.png';
 
-import image from '../../assets/photo-1523049673857-eb18f1d7b578.jpeg'
-
-import { Container, Title, Content, ContentAction, Step, List, About, Ingredients } from './styles';
+import { Container, Title, Content, ContentAction, Step, List, About, Ingredients, Finished } from './styles';
 
 function Recipe({ match }) {
 
     const id = decodeURIComponent(match.params.recipe);
 
     return (
-        
-        <>
-            
+
             <Container>
 
             {   data.map( d => {
                 if(d.id == id) {
                 return ( 
                 <>
-                <Title>
+                <Title key={d.id}>
                     <Link to="/">
                         <ArrowBack />
                     </Link>
@@ -33,11 +30,11 @@ function Recipe({ match }) {
                 </Title>
 
                 <Content>
-                    <img src={image} alt=""/>
+                    <img src={`http://localhost:3000/public/assets/${d.imagem}`} alt=""/>
                     <ContentAction>
                         <span>{d.tempo}</span>
                         <span>{d.custo}</span>
-                        <Link to="/">Start
+                        <Link to="/cronometro/45">Start
                             <ArrowForward />
                         </Link>
                     </ContentAction>
@@ -54,8 +51,8 @@ function Recipe({ match }) {
                         <Ingredients>
                             { d.ingredientes.map(i => {
                                 return(
-                                <div>
-                                    <img src={image} alt=""/>
+                                <div key={i.nome}>
+                                    <img src={`http://localhost:3000/public/assets/${i.imagem}`} alt=""/>
                                     <strong>{i.nome}</strong>
                                     <span>{i.quantidade}</span>
                                 </div>
@@ -69,13 +66,20 @@ function Recipe({ match }) {
                             {
                                 d.preparo.map(p => {
                                     return (
-                                        <List><input type="checkbox"/><li> { p } </li> </List>
+                                        <List><input type="checkbox"/><li key={p}> { p } </li> </List>
                                     );
                                 })
                             }
                             
                         </ul>
+
+                    <Finished>
+                        <h2>Bom Apetite!</h2>
+                        <img src={finish} alt=""/>
+                    </Finished>
+                    
                     </Step>
+
                     
                 </Content>
                 </>
@@ -84,7 +88,6 @@ function Recipe({ match }) {
             })}
 
             </Container>
-        </>
     );
 }
 
