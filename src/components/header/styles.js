@@ -2,16 +2,26 @@ import styled from 'styled-components';
 
 export const PageHeader = styled.div`
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
     padding: 0 5vw;
-    height: 8vh;
+    height: 10vh;
+
+    & > h2 {
+        color: #FA8DBB;
+    }
 
     & > a {
-        padding: 10px 20px;
+        color: #FA8DBB;
+    }
+
+    & > a:last-child {
+        padding: 15px 30px;
         border-radius: 7px;
-        background: #DB664A;
+        background: #FA8DBB;
         color: #fff;
+        font-weight: bold;
 
         &:hover {
             opacity: 0.9;

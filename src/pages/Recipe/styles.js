@@ -45,6 +45,7 @@ export const ContentAction = styled.div`
     position: relative;
     bottom: 50px;
     margin: 0 5vw;
+    
 
     span, a {
         background: #eee;
@@ -78,11 +79,27 @@ export const Ingredients = styled.div`
     overflow-x: auto;
     margin-bottom: 20px;
 
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
     div {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 10px;
+        text-align: center;
+        max-width: 200px;
     }
 
     img {
@@ -92,8 +109,13 @@ export const Ingredients = styled.div`
         margin: 10px;
     }
 
+    strong {
+        margin-top: 8px;
+    }
+
     span {
         font-size: 14px;
+        margin: 5px;
     }
 `;
 
@@ -101,6 +123,7 @@ export const Step = styled.div`
     background: #fff;
     border-radius: 26px 26px 0 0;
     padding: 15px;
+    margin-top: 7vh;
 
     li {
         list-style: decimal;
@@ -109,15 +132,36 @@ export const Step = styled.div`
     }
 `;
 
-export const List = styled.div`
-    padding: 30px 25px;
-    border-bottom: 0.1px solid #ddd;
-    display: flex;
-    align-items: center;
+export const Preparation = styled.ul`
+
+    div {
+        padding: 30px 25px;
+        border-bottom: 0.1px solid #ddd;
+        display: flex;
+        align-items: baseline;
+    }
 
     input {
         margin-right: 30px;
         padding: 10px;
+    }
+
+`;
+
+export const Tips = styled.ul`
+
+    padding: 30px 0;
+
+    div {
+        padding: 5px 40px;
+        display: flex;
+        align-items: center;
+    }
+    
+    li {
+        padding: 10px;
+        list-style: circle;
+        color: #666;
     }
 `;
 
@@ -127,7 +171,12 @@ export const Finished = styled.div`
     align-items: center;
     margin-top: 30px;
 
+    img {
+        max-width: 70vw;
+    }
+
     h2 {
         color: #666;
     }
+
 `;

@@ -9,14 +9,16 @@ export const Container = styled.div`
         z-index: 2;
     }
 
-    & > h2 {
-        margin-left: 5vw;
-        margin-top: 20px;
+    & > h1 {
+        align-self: center;
+        margin: 40px 0;
+        color: #E9967A;
+        font-size: 56px;
     }
 
     & > img:first-child {
         position: absolute;
-        top: 0;
+        top: 10;
         right: 0;
         width: 300px;
         
@@ -81,7 +83,7 @@ export const Recipes = styled.div`
 
 export const RecipesGrid = styled.div`
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
     padding: 0 10vw;
 
     @media(max-width: 800px) {
@@ -91,22 +93,31 @@ export const RecipesGrid = styled.div`
 `;
 
 export const CardRecipe = styled.div`   
-    padding: 5px;
+    padding: 20px;
     margin: 5vh 5vw;
+    background: ${props => props.background };
 
-    p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 23px;
+
+    h2 {
         color: #666;
-        margin: 5px 5px;
+        margin: 15px 5px;
         font-weight: bold;
+        max-width: 300px;
     }
 
     img {
-        width: 150px;
+        width: 200px;
         border-radius: 16px;
+        margin-top: auto;
     }
 
     &:hover {
-        opacity: 0.8;
+        opacity: 0.9;
         transition: all 0.3s;
     }
 `;

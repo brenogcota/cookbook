@@ -7,7 +7,7 @@ import ArrowForward from '@material-ui/icons/ArrowForwardIosOutlined';
 import data from '../../services/data';
 import finish from '../../assets/cookerblack.png';
 
-import { Container, Title, Content, ContentAction, Step, List, About, Ingredients, Finished } from './styles';
+import { Container, Title, Content, ContentAction, Step, About, Ingredients, Preparation, Tips, Finished } from './styles';
 
 function Recipe({ match }) {
 
@@ -31,20 +31,12 @@ function Recipe({ match }) {
 
                 <Content>
                     <img src={`http://localhost:3000/public/assets/${d.imagem}`} alt=""/>
-                    <ContentAction>
-                        <span>{d.tempo}</span>
-                        <span>{d.custo}</span>
-                        <Link to="/cronometro/45">Start
-                            <ArrowForward />
-                        </Link>
-                    </ContentAction>
 
                     <Step>
 
                         <About>
                             <h3>Sobre</h3>
-                            <p>{d.descricao}
-                            </p>
+                            <p>{d.descricao}</p>
                         </About>
 
                         <h3>Ingredientes</h3>
@@ -61,17 +53,35 @@ function Recipe({ match }) {
                             
                         </Ingredients>
 
-                        <ul>
+                        
+                        <Preparation>
                             <h3>Modo de preparo</h3>
                             {
                                 d.preparo.map(p => {
                                     return (
-                                        <List><input type="checkbox"/><li key={p}> { p } </li> </List>
+                                        <div>
+                                            <input type="checkbox"/>
+                                            <li key={p}> { p } </li>
+                                        </div>
                                     );
                                 })
                             }
                             
-                        </ul>
+                        </Preparation>
+
+                        <Tips>
+                            <h3>Dicas</h3>
+                            {
+                                d.dicas.map(dica => {
+                                    return (
+                                        <div>
+                                            <li key={dica}> { dica } </li>
+                                        </div>
+                                    );
+                                })
+                            }
+                            
+                        </Tips>
 
                     <Finished>
                         <h2>Bom Apetite!</h2>

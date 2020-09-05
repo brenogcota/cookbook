@@ -1,7 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
-var fontlight = '#DB664A';
-var fontdark = '#B7422E';
+var fontlight = '#FECCE4';
+var fontdark = '#DB664A';
+var pinkdark = '#FA8DBB';
+var lightorange = '#FF9C85';
+var lightgray = '#C4C4C4';
 var gray = '#222';
 
 export default createGlobalStyle`

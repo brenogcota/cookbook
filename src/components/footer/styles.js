@@ -8,7 +8,7 @@ export const FooterContainer = styled.div`
     height: 100vh;
 
     width: 100%;
-    background: #eee;
+    background: #f5f5f5;
 
     & > img {
         width: 300px;
@@ -26,7 +26,7 @@ export const FooterContent = styled.div`
 
     a {
         padding: 20px 30px;
-        background: #DB664A;
+        background: #FA8DBB;
         color: #fff;
         border-radius: 6px;
         margin: 30px 0;
