@@ -23,10 +23,6 @@ export const Container = styled.div`
     }
 
 
-    
-
-    
-
     & > img {
         position: absolute;
         top: 10;
@@ -36,8 +32,15 @@ export const Container = styled.div`
 
     @media(max-width: 800px) {
         & > img {
-            max-width: 60vw;
-            z-index: 1;
+            display: none;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        p {
+            font-size: 1em;
         }
     }
 `;
@@ -48,7 +51,7 @@ export const Content = styled.div`
     
 
     a {
-        padding: 20px 30px;
+        padding: 2vh 6vw;
         background: #FA8DBB;
         color: #fff;
         border-radius: 6px;
@@ -75,12 +78,13 @@ export const LeftContent = styled.div`
     padding: 5vh 5vw;
     text-align: right;
 
+
     p:nth-child(2) {
         margin-bottom: 40px;
     }
 
     a {
-        padding: 20px 30px;
+        padding: 2vh 6vw;
         background: #FA8DBB;
         color: #fff;
         border-radius: 6px;
@@ -91,6 +95,19 @@ export const LeftContent = styled.div`
     a:hover {
         opacity: 0.8;
         transition: all 0.2s;
+    }
+
+    @media (max-width: 800px) {
+
+        & {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        img {
+            max-width: 300px;
+        }
     }
 `;
 
@@ -115,7 +132,7 @@ export const CenterContent = styled.div`
     }
 
     a {
-        padding: 20px 30px;
+        padding: 3vh 6vw;
         background: #FA8DBB;
         color: #fff;
         border-radius: 6px;
@@ -132,5 +149,11 @@ export const CenterContent = styled.div`
         position: absolute;
         left: 0;
         width: 230px;
+    }
+
+    @media(max-width: 800px) {
+        & > img {
+            display: none;
+        }
     }
 `;

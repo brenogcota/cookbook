@@ -22,7 +22,7 @@ function Recipe({ match }) {
                 return ( 
                 <>
                 <Title key={d.id}>
-                    <Link to="/">
+                    <Link to="/receitas">
                         <ArrowBack />
                     </Link>
 

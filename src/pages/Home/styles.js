@@ -13,7 +13,7 @@ export const Container = styled.div`
         align-self: center;
         margin: 40px 0;
         color: #E9967A;
-        font-size: 56px;
+        font-size: 2.5em;
     }
 
     & > img:first-child {
@@ -35,8 +35,7 @@ export const Container = styled.div`
 
     @media(max-width: 800px) {
         & > img {
-            max-width: 60vw;
-            z-index: 1;
+            display: none;
         }
     }
 `;

@@ -19,13 +19,13 @@ export const FooterContent = styled.div`
     display: flex;
     flex-direction: column;
     
-    margin: 30px 0;
+    margin: 30px 4vw;
     color: #444;
     
     text-align: center;
 
     a {
-        padding: 20px 30px;
+        padding: 3vh 6vw;
         background: #FA8DBB;
         color: #fff;
         border-radius: 6px;

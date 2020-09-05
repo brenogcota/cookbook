@@ -17,7 +17,7 @@ export const PageHeader = styled.div`
     }
 
     & > a:last-child {
-        padding: 15px 30px;
+        padding: 2vh 2vw;
         border-radius: 7px;
         background: #FA8DBB;
         color: #fff;
