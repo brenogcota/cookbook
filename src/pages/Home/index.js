@@ -30,7 +30,7 @@ function Home() {
                         <CardRecipe key={d.id} background={d.background}>
                             <Link to={`/receita/${encodeURIComponent(d.id)}`}>
                                 <h2>{d.titulo}</h2>
-                                <img src={`http://localhost:3000/public/assets/${d.imagem}`} alt=""></img>
+                                <img src={`https://meu-mundo-doce.herokuapp.com/public/assets/${d.imagem}`} alt=""></img>
                             </Link>
                         </CardRecipe>
                         );

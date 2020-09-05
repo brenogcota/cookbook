@@ -30,7 +30,7 @@ function Recipe({ match }) {
                 </Title>
 
                 <Content>
-                    <img src={`http://localhost:3000/public/assets/${d.imagem}`} alt=""/>
+                    <img src={`https://meu-mundo-doce.herokuapp.com/public/assets/${d.imagem}`} alt=""/>
 
                     <Step>
 
@@ -44,7 +44,7 @@ function Recipe({ match }) {
                             { d.ingredientes.map(i => {
                                 return(
                                 <div key={i.nome}>
-                                    <img src={`http://localhost:3000/public/assets/${i.imagem}`} alt=""/>
+                                    <img src={`https://meu-mundo-doce.herokuapp.com/public/assets/${i.imagem}`} alt=""/>
                                     <strong>{i.nome}</strong>
                                     <span>{i.quantidade}</span>
                                 </div>
