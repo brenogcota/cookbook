@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import emailjs from 'emailjs-com';
 
 import Header from '../../components/header';
 
-import { Container, Content, LeftContent, CenterContent } from './styles';
+import { Container, Content, LeftContent, CenterContent, MailBox } from './styles';
 
 import bgTop from '../../assets/background-top.png';
 import bgBottom from '../../assets/background-bottom.png';
 import girl from '../../assets/cookerblack.png';
 
 function LandingPage() {
+
+    const [visible, setVisible] = useState(false);
+    console.log(visible)
+
+    function sendEmail(e) {
+        e.preventDefault();
+    
+        emailjs.sendForm('bohemianrhapsody', 'template_lickwig', e.target, 'user_oy3C8hWFfmHmCLk9UQViI')
+          .then((result) => {
+              setVisible(true);
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+    }
+    
+
     return (
         <>
             <Container>
@@ -42,7 +61,20 @@ function LandingPage() {
                         <h1>E-book Gratuito</h1>
                         <p>Baixe o nosso e-book gratuito e comece a testar as receitas que preparei para você!</p>
 
-                        <a href="/assets/documents/brigadeiros-lucrativos.docx" download>Baixar ebook gratuito</a>
+                        <MailBox>
+                            <h2>Por favor, adicione seu email para liberar o e-book e ficar por dentro das próximas novidades, é rapidinho!</h2>
+                            <span>Relaxa, não enviamos span.</span>
+                            <form className="contact-form" onSubmit={sendEmail}>
+                                <input type="hidden" name="contact_number" />
+                                <input type="text" name="user_name" placeholder="Seu nome" required/>
+                                <input type="email" name="user_email" placeholder="Seu e-mail" required/>
+                                <input type="hidden" name="message"/>
+
+                                <button>Enviar</button>
+                            </form>
+                        </MailBox>
+
+                        { visible && <a href="/assets/documents/brigadeiros-lucrativos.docx" download>Baixar ebook gratuito {visible}</a>}   
                     </div>
 
                 </LeftContent>
@@ -71,6 +103,7 @@ function LandingPage() {
 
                 
             </Container>
+
         </>
     );
 }

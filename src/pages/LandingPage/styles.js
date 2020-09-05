@@ -73,10 +73,11 @@ export const LeftContent = styled.div`
     align-items: flex-start;
     justify-content: space-between;
 
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
     background: #FECCE4;
     padding: 5vh 5vw;
-    text-align: right;
+    text-align: center;
 
 
     p:nth-child(2) {
@@ -156,4 +157,57 @@ export const CenterContent = styled.div`
             display: none;
         }
     }
+`;
+
+export const MailBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+        color: #666;
+    }
+
+    span {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #666;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+
+        input {
+            border: none;
+            outline: none;
+            padding: 2vh 2vw;
+            background: #f1f1f1;
+            margin: 7px 0;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 2vh 2vw;
+            margin-top: 20px;
+            background: #FA8DBB;
+            color: #fff;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 18px;
+            border: none;
+            outline: none;
+        }
+
+        button:hover {
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+    }
+
 `;
